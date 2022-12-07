@@ -1,6 +1,6 @@
 import { Button, Paper } from "@mui/material";
 import { Player } from "./Classes/playerClass";
-import { ShowHand } from "./Components/styledCard";
+import { ShowHand } from "./Components/unoCard";
 
 function App() {
   const player1 = new Player();
