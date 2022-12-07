@@ -1,9 +1,5 @@
-export interface CardType {
-  value?: number;
-  colour?: string;
-  isAction?: boolean;
-  isWildcard?: boolean;
-}
+import { CardType } from "./gameClass";
+import { Game } from "./gameClass";
 
 export class Player {
   hand: CardType[];
@@ -13,12 +9,12 @@ export class Player {
   }
 
   drawCard(num?: number) {
+    console.log("DRAWN CARD");
     if (!num) num = 1;
-    let newCard = {
-      value: 9,
-      colour: "limegreen",
-    };
-    for (let i = 0; i < num; i++) this.hand.push(newCard);
+    for (let i = 0; i < num; i++) {
+      let game = new Game();
+      this.hand.push(game.newCard());
+    }
     return this.hand;
   }
 }
