@@ -13,7 +13,7 @@ export class Game {
       case "0":
         return "red";
       case "1":
-        return "yellow";
+        return "gold";
       case "2":
         return "green";
       case "3":
@@ -45,7 +45,7 @@ export class Game {
     } else if (random > 22 && random <= 25) {
       newCard.type = "action";
       newCard.colour = colour;
-      newCard.value = ">";
+      newCard.value = "X";
     } else {
       newCard.type = "wildcard";
       newCard.colour =
