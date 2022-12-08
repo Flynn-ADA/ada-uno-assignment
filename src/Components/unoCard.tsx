@@ -1,6 +1,4 @@
 import { Grid, Paper, Typography } from "@mui/material";
-import { relative } from "path";
-import { Component } from "react";
 import { CardType } from "../Classes/gameClass";
 
 export const ShowHand = ({ hand }: { hand: CardType[] }) => {
@@ -8,7 +6,6 @@ export const ShowHand = ({ hand }: { hand: CardType[] }) => {
   return (
     <Grid
       container
-      direction={"row"}
       spacing={2}
       alignItems={"flex-end"}
       justifyContent={"center"}
@@ -30,7 +27,6 @@ export const RenderUnoCard = (cardInfo: CardType) => {
     <Paper
       elevation={5}
       // variant="outlined"
-
       sx={{
         width: "8vw",
         height: "15vw",
@@ -41,16 +37,31 @@ export const RenderUnoCard = (cardInfo: CardType) => {
         boxShadow: 0,
         top: 0,
         position: "relative",
-        transition: "top ease 0.5s",
+        transition: "top ease 0.3s",
         "&:hover": {
           boxShadow: 8,
           top: "-50px",
         },
       }}
     >
-      <Typography component="div" fontSize={"5vw"} sx={{ color: "white" }}>
-        {cardInfo.value}
-      </Typography>
+      {cardInfo.value && (
+        <Typography
+          fontSize={"5vw"}
+          sx={{
+            color: cardInfo.colour,
+            borderRadius: "50%",
+            width: "90%",
+            height: "80%",
+            display: "flex",
+            background: "#fff",
+            justifyContent: "center",
+            alignItems: "center",
+            fontWeight: "bold",
+          }}
+        >
+          {cardInfo.value}
+        </Typography>
+      )}
     </Paper>
   );
 };
