@@ -1,5 +1,6 @@
-import { CardType } from "./gameClass";
-import { Game } from "./gameClass";
+import { CardType } from "./CardClass";
+import { UnoCard } from "./CardClass";
+import { ShowHand } from "../Components/ShowHandComponent";
 
 export class Player {
   hand: CardType[];
@@ -12,9 +13,17 @@ export class Player {
     console.log("DRAWN CARD");
     if (!num) num = 1;
     for (let i = 0; i < num; i++) {
-      let game = new Game();
-      this.hand.push(game.newCard());
+      let unoCard = new UnoCard();
+      this.hand.push(unoCard.newCard());
     }
+    this.showHand();
+  }
+
+  getHand() {
     return this.hand;
+  }
+
+  showHand() {
+    return <ShowHand hand={this.hand} />;
   }
 }
