@@ -16,7 +16,6 @@ export class Player {
       let unoCard = new UnoCard();
       this.hand.push(unoCard.newCard());
     }
-    this.showHand();
   }
 
   getHand() {
