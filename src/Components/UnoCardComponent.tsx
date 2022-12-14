@@ -9,12 +9,11 @@ export class RenderUnoCard extends React.Component<CardType> {
     return (
       <Card
         elevation={5}
-        onClick={() => {
-          console.log(cardInfo);
-        }}
         sx={{
-          width: "8vw",
-          height: "15vw",
+          width: "75px",
+          height: "140px",
+          minWidth: 30,
+          minHeight: 30 * (7.5 / 4),
           background: cardInfo.colour,
           display: "flex",
           justifyContent: "center",
@@ -22,20 +21,20 @@ export class RenderUnoCard extends React.Component<CardType> {
           boxShadow: 0,
           top: 0,
           position: "relative",
-          transition: "top ease 0.3s",
+          transition: "transform ease 0.3s",
           border: "5px solid white",
           borderRadius: 2,
           outline: "0.5px solid black",
           "&:hover": {
-            boxShadow: 8,
-            top: "-50px",
+            boxShadow: 5,
+            transform: "rotate(5deg)",
             cursor: "pointer",
           },
         }}
       >
         {cardInfo.type !== "skip" && cardInfo.type !== "wild" && (
           <Typography
-            fontSize={"5vw"}
+            fontSize={"50px"}
             sx={{
               color: cardInfo.colour,
               borderRadius: "50%",
