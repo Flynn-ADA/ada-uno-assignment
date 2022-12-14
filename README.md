@@ -4,12 +4,8 @@
 
 Card animation glitch when move mouse off of card from underneath
 
-Hand not updating when new card is drawn
+Handle styling when user has alot of cards, may need "stacking" style
 
-Paper not clickable - switch back to card component
+Final card - UNO! functionality?
 
-No skip symbol in ascii - use mui icon
-
-Handle styling when user has alot of cards, may need stacking
-
-Final card - UNO! functionality
+Card size scaling.
