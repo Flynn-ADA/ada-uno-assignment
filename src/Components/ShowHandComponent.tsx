@@ -10,19 +10,21 @@ interface handType {
 export class ShowHand extends React.Component<handType> {
   render() {
     const { hand } = this.props;
-    console.log("HGAHAGAGAGGAGAGGAG => ", hand);
+    console.log("Rendering Hand ", hand);
     return (
       <Grid
         container
         spacing={2}
         justifyContent={"center"}
-        marginTop={"auto"}
         position={"absolute"}
         bottom={10}
+        wrap="nowrap"
+        sx={{ overflow: "auto" }}
       >
         {hand.map((card: CardType) => {
+          const cardIndex = hand.indexOf(card);
           return (
-            <Grid item key={hand.indexOf(card)}>
+            <Grid item key={cardIndex} sx={{ paddingBottom: 1 }}>
               <RenderUnoCard {...card} />
             </Grid>
           );
