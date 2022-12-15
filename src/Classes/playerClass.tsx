@@ -1,12 +1,16 @@
 import { CardType } from "./CardClass";
 import { UnoCard } from "./CardClass";
-import { ShowHand } from "../Components/ShowHandComponent";
+
+import { RenderUnoCard } from "../Components/UnoCardComponent";
+import { Grid } from "@mui/material";
 
 export class Player {
   hand: CardType[];
+  playerName: string;
 
   constructor() {
     this.hand = [];
+    this.playerName = "";
   }
 
   drawCard(num?: number) {
@@ -22,7 +26,16 @@ export class Player {
     return this.hand;
   }
 
-  showHand() {
-    return <ShowHand hand={this.hand} />;
+  playableCards(cardInPlay: CardType) {
+    let playable: CardType[] = [];
+    this.hand.map((card: CardType) => {
+      if (
+        card.colour === cardInPlay.colour ||
+        card.value === cardInPlay.value
+      ) {
+        playable.push(card);
+      }
+    });
+    return playable;
   }
 }
