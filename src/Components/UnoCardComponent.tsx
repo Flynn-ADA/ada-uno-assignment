@@ -21,15 +21,9 @@ export class RenderUnoCard extends React.Component<CardType> {
           boxShadow: 0,
           top: 0,
           position: "relative",
-          transition: "transform ease 0.3s",
           border: "5px solid white",
           borderRadius: 2,
           outline: "0.5px solid black",
-          "&:hover": {
-            boxShadow: 5,
-            transform: "rotate(5deg)",
-            cursor: "pointer",
-          },
         }}
       >
         {cardInfo.type !== "skip" && cardInfo.type !== "wild" && (
