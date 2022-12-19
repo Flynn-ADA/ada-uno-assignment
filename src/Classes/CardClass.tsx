@@ -2,6 +2,7 @@ export interface CardType {
   type: string;
   value?: string;
   colour?: string;
+  used?: boolean;
 }
 
 export class UnoCard {
@@ -38,6 +39,7 @@ export class UnoCard {
       this.card.type = "plusTwo";
       this.card.colour = colour;
       this.card.value = "+2";
+      this.card.used = false;
     } else if (random > 22 && random <= 25) {
       this.card.type = "skip";
       this.card.colour = colour;

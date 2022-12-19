@@ -13,9 +13,9 @@ export class Player {
     this.playerName = "";
   }
 
-  drawCard(num?: number) {
+  drawCard(num: number) {
     console.log("DRAWN CARD");
-    if (!num) num = 1;
+
     for (let i = 0; i < num; i++) {
       let unoCard = new UnoCard();
       this.hand.push(unoCard.newCard());
@@ -30,11 +30,21 @@ export class Player {
     let playable: CardType[] = [];
     this.hand.map((card: CardType) => {
       if (
-        card.colour === cardInPlay.colour ||
-        card.value === cardInPlay.value
+        cardInPlay.used !== false &&
+        (card.type === "wild" || card.type === "wildDraw4")
       ) {
         playable.push(card);
       }
+      if (
+        cardInPlay.used !== false &&
+        (card.colour === cardInPlay.colour || card.value === cardInPlay.value)
+      ) {
+        playable.push(card);
+      }
+      if (cardInPlay.type !== "number" && cardInPlay.type === card.type) {
+        playable.push(card);
+      }
+      return playable;
     });
     return playable;
   }

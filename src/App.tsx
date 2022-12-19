@@ -1,9 +1,13 @@
-import { Button, Grid } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import { useEffect, useState, useRef } from "react";
 import { CardType, UnoCard } from "./Classes/CardClass";
 import { Player } from "./Classes/PlayerClass";
+import { NextPlayer } from "./Components/NextPlayerComponent";
+import { OtherHand } from "./Components/OtherHandComponent";
 import { Pile } from "./Components/PileComponent";
 import { RenderUnoCard } from "./Components/UnoCardComponent";
+
+let twoStack = 2;
 
 function App() {
   const player1Ref = useRef<Player>(new Player());
@@ -30,8 +34,14 @@ function App() {
   console.log(player1Ref.current.getHand());
 
   const [playerTurn, setPlayerTurn] = useState(player1Ref.current);
+  const [otherPlayer, setOtherPlayer] = useState(player2Ref.current);
 
   console.log(turnCount);
+
+  let playableCards = playerTurn.playableCards(pile.current.cardInPlay);
+  let cardInPlay = pile.current.cardInPlay;
+  console.log("TWO STACK: ", twoStack);
+
   return (
     <div>
       <Button
@@ -40,12 +50,23 @@ function App() {
           width: 100,
           backgroundColor: "black",
           color: "white",
-          justifyContent: "center",
+          position: "absolute",
+          bottom: "50%",
+          left: "25%",
           margin: "3px",
         }}
         onClick={() => {
-          playerTurn.drawCard();
-          console.log(playerTurn.getHand());
+          let cardsToDraw = 1;
+          if (cardInPlay.type === "plusTwo" && cardInPlay.used === false) {
+            cardsToDraw = twoStack;
+            twoStack = 2;
+            cardInPlay.used = true;
+          }
+          playerTurn.drawCard(cardsToDraw);
+          let temp = playerTurn;
+          setTurnCount(turnCount + 1);
+          setPlayerTurn(otherPlayer);
+          setOtherPlayer(temp);
           setTurnCount(turnCount + 1);
         }}
       >
@@ -81,18 +102,20 @@ function App() {
               <div
                 onClick={() => {
                   if (
-                    playerTurn
-                      .playableCards(pile.current.cardInPlay)
-                      .includes(card)
+                    card.type === "plusTwo" &&
+                    cardInPlay.type === "plusTwo" &&
+                    cardInPlay.used === false
                   ) {
+                    twoStack += 2;
+                  }
+                  if (playableCards.includes(card)) {
+                    let temp = playerTurn;
                     playerTurn.hand.splice(cardIndex, 1);
                     pile.current.setCard(card);
                     setTurnCount(turnCount + 1);
-                    if (playerTurn === player1Ref.current) {
-                      setPlayerTurn(player2Ref.current);
-                    } else {
-                      setPlayerTurn(player1Ref.current);
-                    }
+                    setPlayerTurn(otherPlayer);
+                    setOtherPlayer(temp);
+                    <NextPlayer name={playerTurn.playerName} />;
                   }
                 }}
               >
@@ -102,15 +125,16 @@ function App() {
           );
         })}
       </Grid>
+      <OtherHand hand={otherPlayer.getHand()} />
 
-      <div
-        style={{
-          width: "100%",
-          textAlign: "center",
+      <Typography
+        sx={{
+          margin: "20px",
+          display: "flex",
         }}
       >
         {playerTurn.playerName}'s turn
-      </div>
+      </Typography>
 
       <div
         style={{
@@ -122,7 +146,6 @@ function App() {
       >
         {pile.current.renderPile()}
       </div>
-      {/* {pile.current.setCard()} */}
     </div>
   );
 }
