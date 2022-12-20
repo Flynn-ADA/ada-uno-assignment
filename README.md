@@ -1,5 +1,6 @@
 # ADA (uno style) Card Game
 
+Perform npm install before trying to run this project.
 
 ## Challenge Outline
 As part of this challenge, I was tasked with the creation of my own, approved, individual advanced computersystem, application, or game. As part of this challenge, I chose to create a basic Uno style card game using React, MUI and typescript. 
@@ -31,7 +32,20 @@ During phase 1, I set out to create a basic game with one player, that allowed t
 ### Phase 2 Development 
 During this phase of development I iterated on the phase 1 product by adding a second player. Once the user had made their turn, they would be prompted to hand the device to the second player, where player 1's cards would be switched for player 2's cards.  Some changes I made to phase 1 included moving the player hand into the main app file. This allowed me to mutate the player data on the press of a card. At this stage, I had not implemented functionality for the +2 or skip cards. I performed a code review on my phase 1 development and refined my code to further meet the coding standards I mentioned previously. For example, I had instances of code duplication in the pile class, in which I refactored to use the card class to render a new random card. This phase of development was the most time costly as I was facing rendering issues when switching between players. 
 
-## Phase 3 Development (Final Stage)
+### Phase 3 Development (Final Stage)
 In my third and final stage of development, I created a winner prompt and a cyclical structure that allowed the game to be replayed without refreshing the page. Additionally, I created the functionality of the +2 and skip cards. Following my code review of the 2nd phase. I found that my code was properly commented. To fix this, I spent time reviewing each line of my code and I commented the necessary lines in order to make sure that my code was as readable and reusable as possible. Throughout these phases, I utilised my Trello board to follow an agile approach and continuously refine my code. I also changed the probability of getting +2 and skip cards, as I was seeing them appear too often.
+
+### Resolving Bugs and Design Challenges
+Some issues I came across throughout the lifecycle of my project were rendering issues. Due to the way react works, my components weren't noticing whenever their props changed. This meant that whenever something on the screen was meant to update, it didn't. In order to fix this, I created a react hook that updated the state of a turn counter. This meant that the app was forced to re-render and thus the updates were shown on screen. An example of this issue was when the user would click a card. Upon clicking the card, the expected behaviour was that it would be removed from the hand on screen and it would be placed onto the pile. However, nothing would happen even though I could see the length of the player hand array decreasing in the console. Another issue I came across was with the "wild" and "wildDraw4" cards that I initially intented to incorporate. These cards involved a procedure where the user would have to choose a colour upon playing the card. Due to time constraints, I wasn't able to get this functionality implemented and I was forced to archive those features. If I had more time, I would definitely implement these features but due to restrictions with react and mui, there was no time efficcient way to implement this whilst following the principles of following OOP. My development process involved rigorous testing through exploratory testing. This meant that I was able to identify visual and logical bugs with my game through a live local host that was rendering my game. 
+
+Some design challenges that I faced involved the use of separate folders and files for different components. This meant that I faced difficulty in mutating props and states from outside components. An example of this was how I was going to remove a card from the players hand apon it being clicked in a different file to which the player was instantiated. In order to overcome this, I resulted to moving the onClick function up a level to a div where the player hand rendering is being called. This was in the main app file where the player is instantiated. This allowed me to edit the players hand directly, as the function was present in the same file as the instantiation. 
+
+## Evalutation
+## Code refactoring 
+An example of when I performed some code refactoring was when I came across code duplication within the Pile Class. I was essentially recreating the UnoCard component instead of importing it from the UnoCard class. I came across this during Phase 2 of development. An image of the refactored code can be found below:
+
+<img width="741" alt="image" src="https://user-images.githubusercontent.com/54669337/208786824-0dd7524e-cb95-4e7d-b0f4-016d79230dee.png">
+
+I avoided most code smells through the use of a linter. This allowed me to format my document upon saving. This meant that I could use whitespace and linebreaks to effectively improve the readability of my code. My linter also allowed me to make sure that I was punctuating every necesarry line with semi-colons and brackets. 
 
 
