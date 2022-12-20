@@ -86,6 +86,10 @@ function App() {
 
     if (otherPlayer.getHand().length === 0 && turnCount > 3) {
       alert(otherPlayer.playerName + " wins!");
+      gameStart = false;
+      player1Ref.current.newHand();
+      player2Ref.current.newHand();
+      pile.current.setCard(deck.current.newCard());
     }
 
     return (

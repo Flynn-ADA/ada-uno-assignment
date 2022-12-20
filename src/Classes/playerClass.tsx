@@ -48,4 +48,9 @@ export class Player {
     });
     return playable;
   }
+
+  newHand() {
+    this.hand = [];
+    this.drawCard(7);
+  }
 }
