@@ -1,9 +1,6 @@
 import { CardType } from "./CardClass";
 import { UnoCard } from "./CardClass";
 
-import { RenderUnoCard } from "../Components/UnoCardComponent";
-import { Grid } from "@mui/material";
-
 export class Player {
   hand: CardType[];
   playerName: string;
@@ -43,7 +40,7 @@ export class Player {
         }
       }
 
-      if (card.type === cardInPlay.type) {
+      if (cardInPlay.type !== "number" && card.type === cardInPlay.type) {
         playable.push(card);
       }
 

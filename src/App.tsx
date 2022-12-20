@@ -2,7 +2,6 @@ import { Button, Grid, Typography } from "@mui/material";
 import { useEffect, useState, useRef } from "react";
 import { CardType, UnoCard } from "./Classes/CardClass";
 import { Player } from "./Classes/PlayerClass";
-import { NextPlayer } from "./Components/NextPlayerComponent";
 import { OtherHand } from "./Components/OtherHandComponent";
 import { Pile } from "./Components/PileComponent";
 import { RenderUnoCard } from "./Components/UnoCardComponent";
