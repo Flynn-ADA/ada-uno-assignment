@@ -24,7 +24,6 @@ export class OtherHand extends React.Component<handType> {
           //for each card in the users hand
           return (
             <Grid item key={hand.indexOf(card)} sx={{ paddingBottom: 5 }}>
-              {" "}
               {/*add grid item*/}
               <Card
                 elevation={5}
@@ -45,7 +44,6 @@ export class OtherHand extends React.Component<handType> {
                   outline: "0.5px solid black",
                 }}
               >
-                {" "}
                 {/*add card with styling */}
                 <Typography
                   fontSize={"30px"}
@@ -62,7 +60,6 @@ export class OtherHand extends React.Component<handType> {
                     fontWeight: "bold",
                   }}
                 >
-                  {" "}
                   {/*add card value with styling */}
                   ADA
                 </Typography>

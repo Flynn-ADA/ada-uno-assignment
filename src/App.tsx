@@ -45,7 +45,7 @@ function App() {
           flexDirection: "column",
         }} //Fullscreen div
       >
-        <Typography sx={{ fontSize: "100px" }}>ADA CARD GAME</Typography>{" "}
+        <Typography sx={{ fontSize: "100px" }}>ADA CARD GAME</Typography>
         {/* Game Title */}
         <Typography
           textAlign={"center"}
@@ -59,7 +59,7 @@ function App() {
           card also. Draw a card if you don't have any cards to play. This is a
           local multiplayer game, so after every round, you will be asked to
           pass the device to the other player.
-        </Typography>{" "}
+        </Typography>
         {/* Game Rules */}
         <Button
           sx={{
@@ -74,7 +74,7 @@ function App() {
           }}
         >
           Begin
-        </Button>{" "}
+        </Button>
         {/* Begin game button */}
       </div>
     );
@@ -142,7 +142,6 @@ function App() {
           wrap="nowrap"
           sx={{ overflow: "auto" }}
         >
-          {" "}
           {/* Create grid for player hand */}
           {playerTurn.hand.map((card: CardType) => {
             //for each card in the current player's hand
@@ -202,14 +201,14 @@ function App() {
                     }
                   }}
                 >
-                  <RenderUnoCard {...card} />{" "}
+                  <RenderUnoCard {...card} />
                   {/* Render uno card in the users hand */}
                 </div>
               </Grid>
             );
           })}
         </Grid>
-        <OtherHand hand={otherPlayer.getHand()} />{" "}
+        <OtherHand hand={otherPlayer.getHand()} />
         {/* Render the other players cards face down*/}
         <Typography
           sx={{
@@ -218,7 +217,7 @@ function App() {
           }}
         >
           {playerTurn.playerName}'s turn
-        </Typography>{" "}
+        </Typography>
         {/* display who's turn it is */}
         <div
           style={{

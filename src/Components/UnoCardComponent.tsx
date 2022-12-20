@@ -28,7 +28,6 @@ export class RenderUnoCard extends React.Component<CardType> {
           outline: "0.5px solid black",
         }}
       >
-        {" "}
         {/*Render card with styling*/}
         {/*If card isn't a skip card*/}
         {(cardInfo.type === "plusTwo" || cardInfo.type === "number") && (
@@ -64,7 +63,7 @@ export class RenderUnoCard extends React.Component<CardType> {
               alignItems: "center",
             }}
           />
-        )}{" "}
+        )}
         {/*Add skip icon to card*/}
       </Card>
     );
