@@ -10,12 +10,11 @@ import { RenderUnoCard } from "./Components/UnoCardComponent";
 let twoStack = 2;
 
 function App() {
-  const player1Ref = useRef<Player>(new Player());
-  const player2Ref = useRef<Player>(new Player());
+  let player1Ref = useRef<Player>(new Player());
+  let player2Ref = useRef<Player>(new Player());
   const pile = useRef<Pile>(new Pile());
   const deck = useRef<UnoCard>(new UnoCard());
   const [turnCount, setTurnCount] = useState(0);
-  // console.log("FIRST CARD ", firstCard);
 
   useEffect(() => {
     if (player1Ref.current.getHand().length !== 0) {
@@ -31,16 +30,22 @@ function App() {
     setTurnCount(turnCount + 1);
   }, [setTurnCount, turnCount, deck, pile]);
 
-  console.log(player1Ref.current.getHand());
-
   const [playerTurn, setPlayerTurn] = useState(player1Ref.current);
   const [otherPlayer, setOtherPlayer] = useState(player2Ref.current);
 
-  console.log(turnCount);
-
   let playableCards = playerTurn.playableCards(pile.current.cardInPlay);
   let cardInPlay = pile.current.cardInPlay;
-  console.log("TWO STACK: ", twoStack);
+
+  if (
+    cardInPlay.type === "skip" &&
+    !otherPlayer.playableCards({ type: "skip" }).length
+  ) {
+    cardInPlay.used = true;
+  }
+
+  if (otherPlayer.getHand().length === 0 && turnCount > 3) {
+    alert(otherPlayer.playerName + " wins!");
+  }
 
   return (
     <div>
@@ -68,6 +73,10 @@ function App() {
           setPlayerTurn(otherPlayer);
           setOtherPlayer(temp);
           setTurnCount(turnCount + 1);
+          alert(
+            "You have made your turn, please pass the device to " +
+              otherPlayer.playerName
+          );
         }}
       >
         Draw Card
@@ -108,14 +117,27 @@ function App() {
                   ) {
                     twoStack += 2;
                   }
+
                   if (playableCards.includes(card)) {
-                    let temp = playerTurn;
                     playerTurn.hand.splice(cardIndex, 1);
                     pile.current.setCard(card);
-                    setTurnCount(turnCount + 1);
-                    setPlayerTurn(otherPlayer);
-                    setOtherPlayer(temp);
-                    <NextPlayer name={playerTurn.playerName} />;
+                    if (
+                      !(
+                        card.type === "skip" &&
+                        !otherPlayer.playableCards(card).length
+                      )
+                    ) {
+                      let temp = playerTurn;
+                      setTurnCount(turnCount + 1);
+                      setPlayerTurn(otherPlayer);
+                      setOtherPlayer(temp);
+                      alert(
+                        "You have made your turn, please pass the device to " +
+                          otherPlayer.playerName
+                      );
+                    } else {
+                      setTurnCount(turnCount + 1);
+                    }
                   }
                 }}
               >

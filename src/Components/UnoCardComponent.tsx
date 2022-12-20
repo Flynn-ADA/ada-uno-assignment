@@ -26,7 +26,7 @@ export class RenderUnoCard extends React.Component<CardType> {
           outline: "0.5px solid black",
         }}
       >
-        {cardInfo.type !== "skip" && cardInfo.type !== "wild" && (
+        {(cardInfo.type === "plusTwo" || cardInfo.type === "number") && (
           <Typography
             fontSize={"50px"}
             sx={{
