@@ -3,25 +3,29 @@ import React from "react";
 import { CardType } from "../Classes/CardClass";
 
 interface handType {
-  hand: CardType[];
+  hand: CardType[]; //array of cards
 }
 
 export class OtherHand extends React.Component<handType> {
+  //Show the back of the other players cards
   render() {
-    const { hand } = this.props;
+    const { hand } = this.props; //assigning and destructuring of passed props
     return (
-      <Grid
-        container
-        spacing={2}
-        justifyContent={"center"}
-        position={"absolute"}
-        top={10}
-        wrap="nowrap"
-        sx={{ overflow: "auto" }}
+      <Grid //mui grid
+        container //of variant 'container'
+        spacing={2} //card spacing
+        justifyContent={"center"} //center cards to the middle of the screen
+        position={"absolute"} //absolute positioning (allow to move anywhere on the screen)
+        top={10} //position at the bottom of the screen
+        wrap="nowrap" //do not move cards on to the next row if row overflows
+        sx={{ overflow: "auto" }} //allow user to scroll through their cards if they overflow
       >
         {hand.map((card) => {
+          //for each card in the users hand
           return (
             <Grid item key={hand.indexOf(card)} sx={{ paddingBottom: 5 }}>
+              {" "}
+              {/*add grid item*/}
               <Card
                 elevation={5}
                 sx={{
@@ -41,6 +45,8 @@ export class OtherHand extends React.Component<handType> {
                   outline: "0.5px solid black",
                 }}
               >
+                {" "}
+                {/*add card with styling */}
                 <Typography
                   fontSize={"30px"}
                   sx={{
@@ -56,6 +62,8 @@ export class OtherHand extends React.Component<handType> {
                     fontWeight: "bold",
                   }}
                 >
+                  {" "}
+                  {/*add card value with styling */}
                   ADA
                 </Typography>
               </Card>

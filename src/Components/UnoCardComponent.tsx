@@ -4,8 +4,10 @@ import { CardType } from "../Classes/CardClass";
 import React from "react";
 
 export class RenderUnoCard extends React.Component<CardType> {
+  //Card component extending the react component class
   render() {
-    let cardInfo = this.props;
+    //render
+    let cardInfo = this.props; //assigning the props to a value
     return (
       <Card
         elevation={5}
@@ -26,6 +28,9 @@ export class RenderUnoCard extends React.Component<CardType> {
           outline: "0.5px solid black",
         }}
       >
+        {" "}
+        {/*Render card with styling*/}
+        {/*If card isn't a skip card*/}
         {(cardInfo.type === "plusTwo" || cardInfo.type === "number") && (
           <Typography
             fontSize={"50px"}
@@ -41,10 +46,11 @@ export class RenderUnoCard extends React.Component<CardType> {
               fontWeight: "bold",
             }}
           >
+            {/*Apply text value with styling*/}
             {cardInfo.value}
           </Typography>
         )}
-
+        {/*If card is a skip card*/}
         {cardInfo.type === "skip" && (
           <BlockIcon
             sx={{
@@ -58,7 +64,8 @@ export class RenderUnoCard extends React.Component<CardType> {
               alignItems: "center",
             }}
           />
-        )}
+        )}{" "}
+        {/*Add skip icon to card*/}
       </Card>
     );
   }
