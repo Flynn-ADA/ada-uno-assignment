@@ -9,8 +9,8 @@ import { RenderUnoCard } from "./Components/UnoCardComponent";
 let twoStack = 2; //set default +2 value
 let gameStart = false; //set gameStart to false by default to allow for starting page
 function App() {
-  let player1Ref = useRef<Player>(new Player()); //Create player 1 class object
-  let player2Ref = useRef<Player>(new Player()); //Create player 2 class object
+  const player1Ref = useRef<Player>(new Player()); //Create player 1 class object
+  const player2Ref = useRef<Player>(new Player()); //Create player 2 class object
   const pile = useRef<Pile>(new Pile()); //Create pile class object
   const deck = useRef<UnoCard>(new UnoCard()); //Create deck class object
   const [turnCount, setTurnCount] = useState(0); //Create turnCount hook
