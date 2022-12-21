@@ -21,7 +21,7 @@ I used a Trello board in order to break down the requirements of the task into s
 My Initial working plan was to use a Fail Fast Agile approach. Developing an MVP and iterating on this design in order to produce a high quality product. For each of my components and features, I would create detailed epics on Trello, in order for me to create the component to the best of my ability. I have My trello board contained the sections "TO DO", "DOING", "DONE", "REFACTOR", and "ARCHIVED". The Refactor column allowed my to follow an agile approach and refine my application as it was being built. This allowed me to manage the quality of my product. I would work on my project almost daily in order to make sure that I fulfilled the client requirements.
 
 ### Initital OO Design Ideas
-Initially, I knew I wanted to create a player class. This was so I could easily mutate the data of a given player. I knew that I wanted to create a member function that allowed the user to draw a card. I knew that I wanted to have this card fabricated from within another class (card class). This class handled the random card creation using private member functions to break down the class into smaller, easier to understand components. I knew I was going to face challenges by using an OOP approach with react, as it is an outdated approach with react. 
+Initially, I knew I wanted to create a player class. This was so I could easily mutate the data of a given player. I knew that I wanted to create a member function that allowed the user to draw a card (abstraction). I knew that I wanted to have this card fabricated from within another class (card class). This class handled the random card creation using private member functions (encapsulation) to break down the class into smaller, easier to understand components. I knew I was going to face challenges by using an OOP approach with react, as it is an outdated approach with react. However, I overcame this by using inheritance and polymorphism to extend Reacts Component class and create custom, reusable react components. 
 
 ## Development
 During my development process, I needed to make sure that I was adopting 'good' standards. Including no duplication of code, separated files, use of a linter for formatting, avoiding deep nesting, naming formats and more. I separated all the components and classes I could, into separate files in order to make sure that the codebase is not overcrowded and it is as neat as possible. I used a linter to make sure my code was formatted nicely, including using semi-colons, spacing, line breaks and more.
@@ -47,5 +47,18 @@ An example of when I performed some code refactoring was when I came across code
 <img width="741" alt="image" src="https://user-images.githubusercontent.com/54669337/208786824-0dd7524e-cb95-4e7d-b0f4-016d79230dee.png">
 
 I avoided most code smells through the use of a linter. This allowed me to format my document upon saving. This meant that I could use whitespace and linebreaks to effectively improve the readability of my code. My linter also allowed me to make sure that I was punctuating every necesarry line with semi-colons and brackets. 
+
+### Advanced Programming Principles
+[WRITE HERE]
+
+### Features Showcase
+[WRITE HERE]
+
+### Improved algorithms
+I was able to improve my algorithms through the research of react hooks and states. This allowed me to manage the player turns aswell as the force re-rendering of component upon the changing of their props. For example, the useRef value allowed me to persist values between renders of my application. This allowed me to directly reference the DOM Element within my component as a mutable ref object. This assisted me when I was fixing the issue of my application not rerendering when the props of components were changing. The link to the page I used can be found below: 
+https://www.w3schools.com/react/react_useref.asp#:~:text=The%20useRef%20Hook%20allows%20you,access%20a%20DOM%20element%20directly.
+
+### Overall Review and Professional Development
+Overall, this project has allowed me to substantially improve my OOP skills aswell and my react and frontend development skills. If I had more time, I would have further refactored my code in order to make the main app file less chunky. Additionally I would have continued development on the wild and wildDraw4 card functionalities. Furthermore, I would have liked to implement a networking functionality that allowed users to connect and play against eachother over the internet. I have further improved on my use of Agile methodologies through the use of a kanban board, fail fast techniques and code reviews. These have allowed me to refine my product to the best of my ability. This project gave me the opportunity to expand on my knowledge of react hooks such as useRef() and useState(), in addition to the class component methods of these. As a result of this project I will look into expanding on my work and implementing the features I mentioned before. 
 
 
