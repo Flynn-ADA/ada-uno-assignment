@@ -41,12 +41,12 @@ Some issues I came across throughout the lifecycle of my project were rendering 
 Some design challenges that I faced involved the use of separate folders and files for different components. This meant that I faced difficulty in mutating props and states from outside components. An example of this was how I was going to remove a card from the players hand apon it being clicked in a different file to which the player was instantiated. In order to overcome this, I resulted to moving the onClick function up a level to a div where the player hand rendering is being called. This was in the main app file where the player is instantiated. This allowed me to edit the players hand directly, as the function was present in the same file as the instantiation. 
 
 ## Evalutation
-## Code refactoring 
+### Analysis / Code refactoring 
 An example of when I performed some code refactoring was when I came across code duplication within the Pile Class. I was essentially recreating the UnoCard component instead of importing it from the UnoCard class. I came across this during Phase 2 of development. An image of the refactored code can be found below:
 
 <img width="741" alt="image" src="https://user-images.githubusercontent.com/54669337/208786824-0dd7524e-cb95-4e7d-b0f4-016d79230dee.png">
 
-I avoided most code smells through the use of a linter. This allowed me to format my document upon saving. This meant that I could use whitespace and linebreaks to effectively improve the readability of my code. My linter also allowed me to make sure that I was punctuating every necesarry line with semi-colons and brackets. 
+I avoided most code smells through the use of a linter. This allowed me to format my document upon saving. This meant that I could use whitespace and linebreaks to effectively improve the readability of my code. My linter also allowed me to make sure that I was punctuating every necesarry line with semi-colons and correct brackets. 
 
 ### Advanced Programming Principles
 Throughout my code, I effectively used a wide range of advanced programming principles in order to drive the development of the code. Some of these principles can be found and analysed below
@@ -88,6 +88,13 @@ Another one of the key features of my app is the home screen. This screen shows 
 ### Improved algorithms
 I was able to improve my algorithms through the research of react hooks and states. This allowed me to manage the player turns aswell as the force re-rendering of component upon the changing of their props. For example, the useRef value allowed me to persist values between renders of my application. This allowed me to directly reference the DOM Element within my component as a mutable ref object. This assisted me when I was fixing the issue of my application not rerendering when the props of components were changing. The link to the page I used can be found below: 
 https://www.w3schools.com/react/react_useref.asp#:~:text=The%20useRef%20Hook%20allows%20you,access%20a%20DOM%20element%20directly.
+
+I also made use of conditional rendering. This allowed me to render components with specific styles based on the card type. See below: 
+<img width="335" alt="image" src="https://user-images.githubusercontent.com/54669337/208865242-a0938993-a38b-4f1b-b12c-3c0d619d6f1b.png">
+
+I learned this syntax whilst developing this project and it will help me further my development as a software engineer
+
+Additionally, this project has allowed me to further my OOP skills and use of classes. Before this project I had never really used classes, this project has been a great way for me to advance my development knowledge and OOP skills.
 
 ### Overall Review and Professional Development
 Overall, this project has allowed me to substantially improve my OOP skills aswell and my react and frontend development skills. If I had more time, I would have further refactored my code in order to make the main app file less chunky. Additionally I would have continued development on the wild and wildDraw4 card functionalities. Furthermore, I would have liked to implement a networking functionality that allowed users to connect and play against eachother over the internet. I have further improved on my use of Agile methodologies through the use of a kanban board, fail fast techniques and code reviews. These have allowed me to refine my product to the best of my ability. This project gave me the opportunity to expand on my knowledge of react hooks such as useRef() and useState(), in addition to the class component methods of these. As a result of this project I will look into expanding on my work and implementing the features I mentioned before. 
