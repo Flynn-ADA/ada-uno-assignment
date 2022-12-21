@@ -49,10 +49,41 @@ An example of when I performed some code refactoring was when I came across code
 I avoided most code smells through the use of a linter. This allowed me to format my document upon saving. This meant that I could use whitespace and linebreaks to effectively improve the readability of my code. My linter also allowed me to make sure that I was punctuating every necesarry line with semi-colons and brackets. 
 
 ### Advanced Programming Principles
-[WRITE HERE]
+Throughout my code, I effectively used a wide range of advanced programming principles in order to drive the development of the code. Some of these principles can be found and analysed below
+#### Encapsulation
+Throughout my code, I used encapsulation to privatise functions and variables to my classes. For example, in my UnoCard class, I used encapsulation to create a private 'Random Colour' function that would return 1 of the four colours used by the cards. This allowed me to reuse the code and separate it into smaller chunks thus making it easier to read. 
+
+<img width="586" alt="image" src="https://user-images.githubusercontent.com/54669337/208856450-8efa70f0-5666-4f5f-b709-6fcec428dedd.png">
+
+#### Event-driven programming
+Additionally, throughout my code, I use event driven programming to drive my application. I rely on user event such as mouse clicks to carry out the flow of the game. For example, I have to rely on the user to either click a card to play it, or click the draw card button to draw a card. I also make use of alerts to tell the user to pass the device to the other player so each player can keep their cards secret from the other. 
+
+<img width="748" alt="image" src="https://user-images.githubusercontent.com/54669337/208858858-814bea4b-38c0-46f7-9117-f96f96936dad.png">
+
+#### Polymorphism
+I use Polymorphism within my project to pass props into the component classes. The value of these props affect the functionality of the class thus making it polymorphism as you can pass different parameters in and the code will act on the code in the necassary way.
+
+#### Inheritance
+Throughout my code, I make use of inheritence to build components. I create my class components by extending react's component class. I use the class' render function to return and render the components I pass in. This allows me to create custom components that can be reused thoughout the codebase.
+
+<img width="549" alt="image" src="https://user-images.githubusercontent.com/54669337/208859019-ba1eb4d8-defa-4a8f-b1da-0ea9f6025ad3.png">
 
 ### Features Showcase
-[WRITE HERE]
+Below is an image of my game.
+<img width="1433" alt="image" src="https://user-images.githubusercontent.com/54669337/208859181-8c5f21c4-5768-4f40-bec6-5fb012860ae6.png">
+
+Some key features of my game include the creation of clickable cards, which are played into a class that will handle the game logic. Once a card is clicked, it is passed into the pile class, where it is assigned to the cardInPlay variable. This then allows me to reference the cardInPlay variable within my main app file. Doing this allows me to call playerTurn.playableCards(). Passing the cardInPlay variable into the playableCards function allows me to return an array of cards that can be placed on this card. The information in the card object allows me to use context to make game decisions. For example, trick cards such as '+2' and 'skip' have '.used' properties that allow me to validate wether the card effect has taken place already. Once the card effect has taken place, this allows the user to place a new card ontop of it (like a Blue 5 ontop of a used Blue +2). Without this property, I wouldn't be able to give context to the card and it's 'trick' would infinitely repeat, causing players to constantly pickup 2 or skip their turn. 
+
+
+<img width="1431" alt="image" src="https://user-images.githubusercontent.com/54669337/208861745-b34b13eb-c6c4-4cf4-a770-3bbacbdef76c.png">
+
+Another key feature of my application is the use of alerts. These alerts allow me to temporarily 'pause' the game and tell the user to pass the device to the other player. 'Pausing' the game like this allows me to keep the cards secret from each player, thus allowing for a more authentic card game experience. 
+
+<img width="1410" alt="image" src="https://user-images.githubusercontent.com/54669337/208862071-a1cce9a7-73cf-4f7e-ab7f-0f3129987554.png">
+Another one of the key features of my app is the home screen. This screen shows apon first rendering the app. It explains the rules and allows you to click begin. Once the begin button is clicked, the main game renders and you are able to play. Once a player has used all their cards and they have won, the game sends an alert to the screen telling the user who has won and the game brings you back to the home page, where if you click begin again, a new game starts and the process repeats.
+
+<img width="1418" alt="image" src="https://user-images.githubusercontent.com/54669337/208862899-7757e796-7fc0-4713-8b04-6c8230c11d44.png">
+
 
 ### Improved algorithms
 I was able to improve my algorithms through the research of react hooks and states. This allowed me to manage the player turns aswell as the force re-rendering of component upon the changing of their props. For example, the useRef value allowed me to persist values between renders of my application. This allowed me to directly reference the DOM Element within my component as a mutable ref object. This assisted me when I was fixing the issue of my application not rerendering when the props of components were changing. The link to the page I used can be found below: 
