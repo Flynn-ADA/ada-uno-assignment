@@ -3,7 +3,7 @@
 Perform npm install before trying to run this project.
 
 ## Challenge Outline
-As part of this challenge, I was tasked with the creation of my own, approved, individual advanced computersystem, application, or game. As part of this challenge, I chose to create a basic Uno style card game using React, MUI and typescript. 
+As part of this challenge, I was tasked with the creation of my own, approved, individual advanced computer system, application, or game. As part of this challenge, I chose to create a basic Uno style card game using React, MUI and typescript. 
 
 ### UML Style Diagram
 I created a UML Style Diagram illustrating my initial overall solution
