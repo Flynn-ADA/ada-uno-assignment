@@ -15,6 +15,7 @@ export class UnoCard {
   }
 
   private randomColour() {
+    //Encapsulation
     //random colour function
     let randomColour = Math.floor(Math.random() * 4).toString(); //generate random number between 0 and 3 inclusive
     switch (randomColour) {
